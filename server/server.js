@@ -19,6 +19,10 @@ app.use(cors());
 
 connectDB();
 app.set('io', io);
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+const ratingRoutes = require('./routes/ratings');
+app.use('/api/ratings', ratingRoutes);
 
 app.get('/api', (req, res) => {
   res.json({ message: 'RateMyMess API is running' });
